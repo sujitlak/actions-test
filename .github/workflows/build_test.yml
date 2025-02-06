@@ -3,7 +3,7 @@ name: Build Testing
 on:
   push:
     branches:
-      - development
+      - dev
 
 
 jobs:
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Make
