@@ -1,4 +1,4 @@
-name: Build Testing
+name: Build Bash Testing
 
 on:
   push:
