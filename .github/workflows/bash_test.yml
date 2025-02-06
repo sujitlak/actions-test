@@ -1,4 +1,4 @@
-name: Build Testing
+name: Build Bash Testing
 
 on:
   push:
@@ -15,11 +15,5 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Make
-        run: sudo apt-get install make
-
-      - name: Build Code
-        run: make sample_prog
-
-      - name: Run Code
-        run: ./sample_prog
+      - name: Run Bash Script
+        run: ./build_run.sh
