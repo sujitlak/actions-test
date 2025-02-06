@@ -1,0 +1,25 @@
+name: Build Testing
+
+on:
+  push:
+    branches:
+      - development
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Make
+      - run: sudo apt-get install make
+
+      - name: Build Code
+      - run: make sample_prog
+
+      - name: Run Code
+      - run: ./sample_prog
