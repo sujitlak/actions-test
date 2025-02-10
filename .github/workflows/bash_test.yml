@@ -1,0 +1,19 @@
+name: Build Bash Testing
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Run Bash Script
+        run: ./build_run.sh
