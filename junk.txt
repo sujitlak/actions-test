@@ -1,0 +1,33 @@
+name: Check for pushes to test branch
+
+on:
+  schedule:
+    - cron: "0 5 * * *"  # Runs daily at 5 AM UTC, which corresponds to midnight ET during Standard Time
+
+jobs:
+  check-pushes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for pushes to the 'test' branch in the last 24 hours
+        id: check_pushes
+        run: |
+          # Get the latest commit date for the test branch
+          LAST_COMMIT_DATE=$(git log -1 --since="1 day ago" --format=%cd --date=iso8601)
+          if [[ -n "$LAST_COMMIT_DATE" && $(git branch --show-current) == "test" ]]; then
+            echo "Pushes detected on 'test' branch in the last 24 hours"
+            echo "push_detected=true" >> $GITHUB_ENV
+          else
+            echo "No pushes to the 'test' branch in the last 24 hours"
+            echo "push_detected=false" >> $GITHUB_ENV
+          fi
+
+      - name: Run workflow if push detected
+        if: env.push_detected == 'true'
+        run: |
+          echo "Running the workflow because there were pushes to the 'test' branch"
+          
+          # Add the command you want to run when there are pushes to 'test'
