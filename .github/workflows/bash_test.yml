@@ -17,5 +17,5 @@ jobs:
 
       - name: Run Bash Script
         run: |
-        chmod +x build_run.sh
-        ./build_run.sh
+          chmod +x build_run.sh
+          ./build_run.sh
