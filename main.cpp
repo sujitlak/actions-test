@@ -13,5 +13,8 @@ int main() {
     int e = appleFunction(a, b);
     double f = bananaFunction(c, d);
 
+    double g = appleFunction(c, d);
+
     std::cout << "e: " << e << " f: " << f << "\n";
+    std::cout << "g: " << g << "\n";
 }
