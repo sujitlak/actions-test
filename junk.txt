@@ -19,8 +19,15 @@ jobs:
           LAST_COMMIT_DATE=$(git log -1 --since="1 day ago" --format=%cd --date=iso8601)
           if [[ -n "$LAST_COMMIT_DATE" && $(git branch --show-current) == "test" ]]; then
             echo "Pushes detected on 'test' branch in the last 24 hours"
-            chmod +x build_run.sh
-            ./build_run.sh
+            echo "push_detected=true" >> $GITHUB_ENV
           else
             echo "No pushes to the 'test' branch in the last 24 hours"
+            echo "push_detected=false" >> $GITHUB_ENV
           fi
+
+      - name: Run workflow if push detected
+        if: env.push_detected == 'true'
+        run: |
+          echo "Running the workflow because there were pushes to the 'test' branch"
+          
+          # Add the command you want to run when there are pushes to 'test'
