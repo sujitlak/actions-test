@@ -15,6 +15,11 @@ int main() {
 
     double g = appleFunction(c, d);
 
+    int h = bananaFunction(a, b);
+
     std::cout << "e: " << e << " f: " << f << "\n";
     std::cout << "g: " << g << "\n";
+
+    std::cout << "Apple function result e: "<< e << "\n";
+    std::cout << "Banana function result h: "<< h << "\n";
 }
