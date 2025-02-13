@@ -12,6 +12,7 @@ int main() {
     double c = 12, d = 10;
     int e = appleFunction(a, b);
     double f = bananaFunction(c, d);
+
     double g = appleFunction(c, d);
 
     int h = bananaFunction(a, b);
