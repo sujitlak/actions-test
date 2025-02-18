@@ -34,10 +34,3 @@ jobs:
             echo "No commits in the last 24 hours on the remote $BRANCH branch."
             exit 1  # Optionally exit with an error if no commit found in the last 24 hours
           fi
-
-      - name: Run workflow if push detected
-        if: env.push_detected == 'true'
-        run: |
-          echo "Running the workflow because there were pushes to the 'test' branch"
-          
-          # Add the command you want to run when there are pushes to 'test'
