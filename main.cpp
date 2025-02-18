@@ -17,6 +17,8 @@ int main() {
 
     int h = bananaFunction(a, b);
 
+    std::cout << "The purpose of this program is to test the functionality of a proper repository." << "\n";
+
     std::cout << "e: " << e << " f: " << f << "\n";
     std::cout << "g: " << g << "\n";
 
