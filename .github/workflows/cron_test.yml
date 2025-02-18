@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Check for pushes to the 'test' branch in the last 24 hours
         id: check_pushes
