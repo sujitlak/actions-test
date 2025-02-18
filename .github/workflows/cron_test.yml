@@ -27,7 +27,7 @@ jobs:
           LAST_24HRS_TIMESTAMP=$(date --date='24 hours ago' +%s)
 
           # Get the timestamp of the latest commit on the remote branch
-          LATEST_COMMIT_TIMESTAMP=$(git log -1 --format=%ct actions-test/$BRANCH)
+          LATEST_COMMIT_TIMESTAMP=$(git log -1 --format=%ct origin/$BRANCH)
 
           # Compare the commit timestamp with the 24 hours ago timestamp
           if [ $LATEST_COMMIT_TIMESTAMP -ge $LAST_24HRS_TIMESTAMP ]; then
