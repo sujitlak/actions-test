@@ -3,6 +3,7 @@ name: Check for pushes to test branch
 on:
   schedule:
     - cron: "15 18 * * *"  # Runs daily at 5 AM UTC, which corresponds to midnight ET during Standard Time
+  workflow_dispatch:
 
 jobs:
   check-pushes:
