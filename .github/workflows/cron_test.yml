@@ -19,7 +19,7 @@ jobs:
           # Set the branch name you want to check
           BRANCH="test"  # Change this to your target branch
 
-          git fetch actions-test $BRANCH
+          # git fetch actions-test $BRANCH
           # Get the current timestamp (current time in seconds)
           CURRENT_TIMESTAMP=$(date +%s)
 
