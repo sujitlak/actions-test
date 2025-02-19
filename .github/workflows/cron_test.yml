@@ -16,6 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Show Git log
+        run: git log actions-test/main
         
       - name: Check for pushes to the 'test' branch in the last 24 hours
         id: check_pushes
