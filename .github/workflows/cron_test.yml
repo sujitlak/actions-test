@@ -22,6 +22,8 @@ jobs:
           # Set the branch name you want to check
           BRANCH="test"  # Change this to your target branch
 
+          git log actions-test/test --oneline --since '24 hours ago' | wc -l;
+
           git fetch actions-test $BRANCH
           # Get the current timestamp (current time in seconds)
           CURRENT_TIMESTAMP=$(date +%s)
