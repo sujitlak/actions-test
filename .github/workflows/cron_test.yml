@@ -16,7 +16,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: actions-test/main
+          fetch-depth: 3
 
       - name: Show Git log
         run: git log actions-test/main
