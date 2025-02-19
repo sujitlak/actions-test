@@ -19,15 +19,14 @@ jobs:
       - name: Check for pushes to the 'test' branch in the last 24 hours
         id: check_pushes
         run: |
-          # Set the branch name you want to check
-          BRANCH="main"  # Change this to your target branch
+          # Get the current time in seconds since epoch
+          current_time=$(date +%s)
+          # Get the commits in the last 12 hours on the branch
+          commits=$(git log --since="12 hours ago" --oneline)
 
-          # Get the latest commit date for the test branch
-          LAST_COMMIT_DATE=$(git log -1 --since="1 day ago" --format=%cd --date=iso8601)
-          if [[ -n "$LAST_COMMIT_DATE" && $(git branch --show-current) == "test" ]]; then
-            echo "Pushes detected on 'test' branch in the last 24 hours"
-            chmod +x build_run.sh
-            ./build_run.sh
+          if [ -z "$commits" ]; then
+            echo "No commits in the last 12 hours."
           else
-            echo "No pushes to the 'test' branch in the last 24 hours"
+            echo "Commits in the last 12 hours:"
+            echo "$commits"
           fi
