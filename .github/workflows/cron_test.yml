@@ -18,13 +18,13 @@ jobs:
         with:
           fetch-depth: 5
         
-      - name: Check for pushes to the 'test' branch in the last 24 hours
+      - name: Check for pushes to the branch in the last 24 hours
         id: check_pushes
         run: |
           # Get the current time in seconds since epoch
           current_time=$(date +%s)
           # Get the commits in the last 12 hours on the branch
-          commits=$(git log --since="12 hours ago" --oneline)
+          commits=$(git log --since="24 hours ago" --oneline test)
 
           if [ -z "$commits" ]; then
             echo "No commits in the last 12 hours."
