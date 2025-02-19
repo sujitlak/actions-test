@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 3
         
       - name: Check for pushes to the 'test' branch in the last 24 hours
         id: check_pushes
@@ -24,19 +22,12 @@ jobs:
           # Set the branch name you want to check
           BRANCH="main"  # Change this to your target branch
 
-          # Get the current timestamp (current time in seconds)
-          CURRENT_TIMESTAMP=$(date +%s)
-
-          # Get the timestamp of 24 hours ago
-          LAST_24HRS_TIMESTAMP=$(date --date='24 hours ago' +%s)
-
-          # Get the timestamp of the latest commit on the remote branch
-          LATEST_COMMIT_TIMESTAMP=$(git log -1 --format=%ct actions-test/$BRANCH)
-
-          # Compare the commit timestamp with the 24 hours ago timestamp
-          if [ $LATEST_COMMIT_TIMESTAMP -ge $LAST_24HRS_TIMESTAMP ]; then
-            echo "There was a commit in the last 24 hours on the remote $BRANCH branch."
+          # Get the latest commit date for the test branch
+          LAST_COMMIT_DATE=$(git log -1 --since="1 day ago" --format=%cd --date=iso8601)
+          if [[ -n "$LAST_COMMIT_DATE" && $(git branch --show-current) == "test" ]]; then
+            echo "Pushes detected on 'test' branch in the last 24 hours"
+            chmod +x build_run.sh
+            ./build_run.sh
           else
-            echo "No commits in the last 24 hours on the remote $BRANCH branch."
-            exit 1  # Optionally exit with an error if no commit found in the last 24 hours
+            echo "No pushes to the 'test' branch in the last 24 hours"
           fi
