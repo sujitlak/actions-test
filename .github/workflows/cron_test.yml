@@ -24,7 +24,7 @@ jobs:
 
           git log actions-test/test --oneline --since '24 hours ago' | wc -l;
 
-          git fetch actions-test $BRANCH
+          #
           # Get the current timestamp (current time in seconds)
           CURRENT_TIMESTAMP=$(date +%s)
 
