@@ -1,0 +1,28 @@
+name: Testing Build Artifact Storage
+
+on:
+
+  workflow_dispatch:
+
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Run Bash Script
+      run: |
+        chmod +x build_run.sh
+        ./build_run.sh
+        mkdir build_output/
+        cp *.o build_output/
+
+    - name: Upload build output as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-artifacts
+        path: build_output/
