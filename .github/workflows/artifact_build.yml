@@ -20,6 +20,7 @@ jobs:
         ./build_run.sh
         mkdir build_output/
         cp *.o build_output/
+        cp sample_prog build_output/
 
     - name: Upload build output as artifact
       uses: actions/upload-artifact@v4
