@@ -1,0 +1,26 @@
+name: Testing Different Branch Responses
+
+on:
+  push:
+    branches:
+      - dev
+      - test
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Command diff branches
+        run: |
+          if [ "${GITHUB_REF}" == "refs/heads/dev" ]; then
+            echo "This is running on the dev branch."
+          elif [ "${GITHUB_REF}" == "refs/heads/test" ]; then
+            echo "This is running on the test branch."
+          elif [ "${GITHUB_REF}" == "refs/heads/main" ]; then
+            echo "This is running on the test branch."
+          fi
