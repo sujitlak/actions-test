@@ -6,4 +6,6 @@ int appleFunction(int a, int b);
 
 double appleFunction(double a, double b);
 
+void fizzBuzz(int a);
+
 #endif // APPLE_H
