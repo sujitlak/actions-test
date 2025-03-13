@@ -15,8 +15,11 @@ jobs:
         password: ${{ secrets.GHCR_PAT }}
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
+
+      - name: Display cwd
+        run: pwd
 
       - name: Build program
         run: make
