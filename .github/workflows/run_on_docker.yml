@@ -26,7 +26,6 @@ jobs:
       - name: Display cwd
         run: |
           pwd
-          ls
           ls /apps
 
       - name: Build program
