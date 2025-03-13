@@ -25,5 +25,5 @@ int main() {
     std::cout << "Apple function result e: "<< e << "\n";
     std::cout << "Banana function result h: "<< h << "\n";
 
-    fizzBuzz(a);
+    dissMiss(a);
 }
