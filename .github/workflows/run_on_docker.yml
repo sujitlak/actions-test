@@ -1,0 +1,25 @@
+name: Testing Containerized run
+
+on:
+
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/sujitlak/docker-repos:main
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build program
+      - run: make
+
+      - name: Run Program on Docker
+      - run: ./hello_world
