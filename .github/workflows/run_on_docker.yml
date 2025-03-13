@@ -1,6 +1,9 @@
 name: Testing Containerized run
 
 on:
+  push:
+    branches:
+      - main
 
   workflow_dispatch:
 
@@ -24,7 +27,7 @@ jobs:
         run: |
           pwd
           ls
-          la /apps
+          ls /apps
 
       - name: Build program
         run: make
