@@ -13,8 +13,8 @@ jobs:
       credentials:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
-      # volumes:
-      #   - /path/on/host:/path/in/container
+      volumes:
+       - /path/on/host:/path/in/container
 
     steps:
       - name: Checkout code
