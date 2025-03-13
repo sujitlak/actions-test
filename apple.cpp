@@ -9,12 +9,12 @@ double appleFunction(double a, double b) {
     return a + b;
 }
 
-void fizzBuzz(int a) {
+void dissMiss(int a) {
     if(a % 3 == 0) {
-        std::cout << "Fizz";
+        std::cout << "Diss";
     }
     if(a % 5 == 0) {
-        std::cout << "Buzz";
+        std::cout << "Miss";
     }
     std::cout << "\n";
 }
