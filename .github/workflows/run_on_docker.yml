@@ -25,7 +25,7 @@ jobs:
 
       - name: Display cwd
         run: |
-          docker ps
+          ls
 
       - name: Build program
         run: /apps/make
