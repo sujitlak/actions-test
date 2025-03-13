@@ -12,7 +12,7 @@ jobs:
       image: ghcr.io/sujitlak/docker-repos:main
       credentials:
         username: ${{ github.actor }}
-        password: ${{ secrets.Docker-pull }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout code
