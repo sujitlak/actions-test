@@ -14,7 +14,7 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GHCR_PAT }}
       volumes:
-       - /path/on/host:/path/in/container
+       - basic-program:/apps
 
     steps:
       - name: Checkout code
@@ -24,6 +24,7 @@ jobs:
         run: |
           pwd
           ls
+          la /apps
 
       - name: Build program
         run: make
