@@ -25,7 +25,7 @@ jobs:
 
       - name: Display cwd
         run: |
-          ls -l /apps
+          ls -l /appssfdsf
 
       - name: Build program
         run: /apps/make
