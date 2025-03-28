@@ -25,6 +25,14 @@ jobs:
 
       - name: Display cwd
         run: |
+          ls -l 
+
+      - name: Display next
+        run: |
+          ls -l /
+
+      - name: Display /apps
+        run: |
           ls -l /apps
 
       - name: Build program
