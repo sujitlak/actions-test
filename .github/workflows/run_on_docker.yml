@@ -23,6 +23,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Run Container
+        run: 
+          docker run --rm ghcr.io/sujitlak/docker-repos:main
+
       - name: Display cwd
         run: |
           ls
