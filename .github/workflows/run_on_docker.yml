@@ -40,4 +40,5 @@ jobs:
 
       - name: Run Program on Docker
         run: |
+          cd /app
           ./hello_world
