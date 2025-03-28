@@ -31,9 +31,9 @@ jobs:
         run: |
           ls -l /
 
-      - name: Display /apps
+      - name: Display /app
         run: |
-          ls -l /apps
+          ls -l /app
 
       - name: Build program
         run: /apps/make
