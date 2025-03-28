@@ -20,12 +20,12 @@ jobs:
        - basic-program:/apps
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # - name: Checkout code
+      #   uses: actions/checkout@v4
 
       - name: Display cwd
         run: |
-          ls -l /appssfdsf
+          ls -l /apps
 
       - name: Build program
         run: /apps/make
