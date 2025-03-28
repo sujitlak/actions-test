@@ -34,7 +34,10 @@ jobs:
           ls -l /app
 
       - name: Build program
-        run: /app/make
+        run: |
+          cd /app
+          make
 
       - name: Run Program on Docker
-        run: ./hello_world
+        run: |
+          ./hello_world
