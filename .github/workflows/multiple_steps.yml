@@ -1,0 +1,31 @@
+name: Build Testing
+
+on:
+  push:
+    branches:
+      - main
+    
+  workflow_dispatch:
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Make
+        run: sudo apt-get install make
+
+      - name: Build Code
+        run: make sample_prog
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check directory
+        run: ls
